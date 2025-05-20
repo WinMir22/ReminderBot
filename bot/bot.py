@@ -4,6 +4,7 @@ from aiogram import Bot, Dispatcher
 
 from bot.config import Config, load_config
 from bot.handlers import start
+from bot.middlewares.LoggingMiddleware import LoggingMiddleware
 
 logger = logging.getLogger(__name__)
 
@@ -21,5 +22,7 @@ async def main() -> None:
     dp = Dispatcher()
 
     dp.include_router(start.router)
+
+    dp.update.middleware(LoggingMiddleware)
 
     await dp.start_polling(bot)
