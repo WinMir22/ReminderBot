@@ -3,6 +3,7 @@ import logging
 from aiogram import Bot, Dispatcher
 
 from bot.config import Config, load_config
+from bot.handlers import start
 
 logger = logging.getLogger(__name__)
 
@@ -18,5 +19,7 @@ async def main() -> None:
 
     bot = Bot(token=config.tg_bot.bot_token)
     dp = Dispatcher()
+
+    dp.include_router(start.router)
 
     await dp.start_polling(bot)
