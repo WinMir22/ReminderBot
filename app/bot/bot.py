@@ -2,9 +2,9 @@ import logging
 
 from aiogram import Bot, Dispatcher
 
-from bot.config import Config, load_config
-from bot.handlers import start
-from bot.middlewares.LoggingMiddleware import LoggingMiddleware
+from app.bot.config import Config, load_config
+from app.bot.handlers import start
+from app.bot.middlewares.LoggingMiddleware import LoggingMiddleware
 
 logger = logging.getLogger(__name__)
 

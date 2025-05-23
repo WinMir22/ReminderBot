@@ -1,6 +1,6 @@
 import asyncio
 
-from bot import main
+from app.bot import main
 
 if __name__ == "__main__":
     asyncio.run(main())

@@ -5,7 +5,7 @@ Provides typed configuration classes and environment variables loading.
 Designed to be imported as a module, not executed directly.
 
 Example:
-    >>> from bot.config import load_config
+    >>> from app.bot import load_config
     >>> config = load_config()
 
 Environment variables:
