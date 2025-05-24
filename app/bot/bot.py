@@ -2,6 +2,7 @@ import logging
 
 from aiogram import Bot, Dispatcher
 
+from app.bot.bot_logging.logging_filters import LoggingErrorFilter, LoggingWarningFilter
 from app.bot.config import Config, load_config
 from app.bot.handlers import start
 from app.bot.middlewares.LoggingMiddleware import LoggingMiddleware
@@ -14,7 +15,14 @@ async def main() -> None:
         level=logging.INFO,
         format="%(filename)s:%(lineno)d #%(levelname)-8s "
         "[%(asctime)s] - %(name)s - %(message)s",
+        handlers=[
+            logging.StreamHandler(),
+            logging.FileHandler("app/bot/bot_logging/log_errors.txt"),
+            logging.FileHandler("app/bot/bot_logging/log_warnings.txt"),
+        ],
     )
+    logging.root.handlers[1].addFilter(LoggingErrorFilter())
+    logging.root.handlers[2].addFilter(LoggingWarningFilter())
 
     config: Config = load_config()
 

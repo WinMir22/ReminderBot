@@ -3,7 +3,7 @@ from typing import Callable, Dict, Any, Awaitable
 from aiogram import BaseMiddleware
 from aiogram.types import TelegramObject, Update
 
-from app.bot.bot_logger import BotEventLogger
+from app.bot.bot_logging import BotEventLogger
 
 
 class LoggingMiddleware(BaseMiddleware):

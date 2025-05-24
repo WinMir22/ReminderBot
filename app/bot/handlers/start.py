@@ -2,7 +2,7 @@ from aiogram import Router
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 
-from app.bot.bot_logger import BotEventLogger
+from app.bot.bot_logging import BotEventLogger
 
 router = Router()
 
