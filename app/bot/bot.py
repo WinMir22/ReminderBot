@@ -23,6 +23,6 @@ async def main() -> None:
 
     dp.include_router(start.router)
 
-    dp.update.middleware(LoggingMiddleware)
+    dp.update.middleware(LoggingMiddleware())
 
     await dp.start_polling(bot)
